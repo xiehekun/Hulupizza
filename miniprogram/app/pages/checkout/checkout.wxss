@@ -1,0 +1,91 @@
+.section-title {
+  font-size: 32rpx;
+  font-weight: 800;
+  margin-bottom: 16rpx;
+}
+
+.mode-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16rpx;
+}
+
+.mode {
+  height: 76rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #e2d9cf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555555;
+}
+
+.mode.active {
+  border-color: #b23a1f;
+  color: #b23a1f;
+  background: #fff3ec;
+  font-weight: 700;
+}
+
+.field {
+  margin-top: 24rpx;
+}
+
+.label {
+  color: #777777;
+  margin-bottom: 8rpx;
+}
+
+input,
+textarea {
+  width: 100%;
+  background: #f7f4ef;
+  border-radius: 8rpx;
+  padding: 18rpx;
+}
+
+textarea {
+  height: 150rpx;
+}
+
+.order-item,
+.coupon-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24rpx;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #f0ebe4;
+}
+
+.order-item:last-child,
+.coupon-row:last-child {
+  border-bottom: 0;
+}
+
+.coupon-row.selected {
+  background: #fff3ec;
+  margin: 0 -12rpx;
+  padding: 18rpx 12rpx;
+  border-radius: 8rpx;
+}
+
+.item-name {
+  font-weight: 700;
+  margin-bottom: 6rpx;
+}
+
+.pay-panel {
+  position: sticky;
+  bottom: 24rpx;
+}
+
+.line {
+  margin-bottom: 12rpx;
+  color: #555555;
+}
+
+.payable {
+  font-size: 36rpx;
+  font-weight: 800;
+  margin: 20rpx 0 24rpx;
+}

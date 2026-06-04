@@ -1,0 +1,19 @@
+.coupon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.coupon-name {
+  font-size: 32rpx;
+  font-weight: 800;
+  margin-bottom: 8rpx;
+}
+
+.coupon-btn {
+  width: 140rpx;
+  flex: none;
+  margin: 0;
+}

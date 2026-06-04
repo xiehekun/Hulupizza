@@ -1,0 +1,82 @@
+page {
+  background: #f7f4ef;
+  color: #222222;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-size: 28rpx;
+}
+
+view,
+text,
+button,
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 24rpx;
+}
+
+.section {
+  margin-bottom: 24rpx;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1rpx solid #ece5dc;
+  border-radius: 8rpx;
+  padding: 24rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.muted {
+  color: #777777;
+}
+
+.price {
+  color: #b23a1f;
+  font-weight: 700;
+}
+
+.primary-btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 8rpx;
+  background: #b23a1f;
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.secondary-btn {
+  height: 72rpx;
+  line-height: 72rpx;
+  border-radius: 8rpx;
+  background: #222222;
+  color: #ffffff;
+  font-size: 28rpx;
+}
+
+.ghost-btn {
+  height: 64rpx;
+  line-height: 64rpx;
+  border-radius: 8rpx;
+  background: #f7f4ef;
+  color: #222222;
+  font-size: 26rpx;
+}
+
+button::after {
+  border: 0;
+}

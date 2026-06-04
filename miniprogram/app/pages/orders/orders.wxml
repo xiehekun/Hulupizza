@@ -1,0 +1,25 @@
+<view class="page">
+  <view wx:if="{{orders.length === 0}}" class="empty panel">
+    <view class="empty-title">还没有订单</view>
+    <view class="muted">可以先去点一份披萨。</view>
+    <button class="primary-btn" bindtap="goMenu">去点餐</button>
+  </view>
+
+  <view
+    wx:for="{{orders}}"
+    wx:key="id"
+    class="panel order-card"
+    data-id="{{item.id}}"
+    bindtap="goDetail"
+  >
+    <view class="between">
+      <view class="order-id">{{item.id}}</view>
+      <view class="status">{{item.status}}</view>
+    </view>
+    <view class="muted">{{item.diningTypeText}} · {{item.createdAt}}</view>
+    <view class="between total-row">
+      <text>{{item.itemSummary}}</text>
+      <text class="price">￥{{item.payableAmount}}</text>
+    </view>
+  </view>
+</view>

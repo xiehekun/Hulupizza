@@ -1,0 +1,63 @@
+.empty {
+  text-align: center;
+  padding: 64rpx 32rpx;
+}
+
+.empty-title {
+  font-size: 34rpx;
+  font-weight: 800;
+  margin-bottom: 12rpx;
+}
+
+.empty .primary-btn {
+  margin-top: 32rpx;
+}
+
+.cart-item {
+  margin-bottom: 20rpx;
+}
+
+.item-name {
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.option-text {
+  max-width: 460rpx;
+  margin-top: 8rpx;
+  line-height: 1.4;
+}
+
+.item-actions {
+  margin-top: 20rpx;
+}
+
+.remove-btn {
+  width: 120rpx;
+  margin: 0;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+}
+
+.qty button {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 8rpx;
+  background: #222222;
+  color: #ffffff;
+  margin: 0;
+}
+
+.summary {
+  position: sticky;
+  bottom: 24rpx;
+}
+
+.summary .primary-btn {
+  margin-top: 24rpx;
+}

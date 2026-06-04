@@ -1,0 +1,35 @@
+<view class="page">
+  <view wx:if="{{cart.length === 0}}" class="empty panel">
+    <view class="empty-title">购物车还是空的</view>
+    <view class="muted">先去选一张热乎的窑烤披萨。</view>
+    <button class="primary-btn" bindtap="goMenu">去点餐</button>
+  </view>
+
+  <view wx:else>
+    <view class="panel cart-item" wx:for="{{cart}}" wx:key="key">
+      <view class="between">
+        <view>
+          <view class="item-name">{{item.name}}</view>
+          <view class="muted option-text">{{item.optionText}}</view>
+        </view>
+        <view class="price">￥{{item.price}}</view>
+      </view>
+      <view class="between item-actions">
+        <button class="ghost-btn remove-btn" data-key="{{item.key}}" bindtap="removeItem">删除</button>
+        <view class="qty">
+          <button data-key="{{item.key}}" data-delta="-1" bindtap="changeQuantity">-</button>
+          <text>{{item.quantity}}</text>
+          <button data-key="{{item.key}}" data-delta="1" bindtap="changeQuantity">+</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="panel summary">
+      <view class="between">
+        <text>商品金额</text>
+        <text>￥{{cartTotal}}</text>
+      </view>
+      <button class="primary-btn" bindtap="goCheckout">去结算</button>
+    </view>
+  </view>
+</view>

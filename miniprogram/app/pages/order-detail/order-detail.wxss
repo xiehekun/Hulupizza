@@ -1,0 +1,57 @@
+.status {
+  font-size: 42rpx;
+  font-weight: 800;
+  color: #b23a1f;
+  margin-bottom: 8rpx;
+}
+
+.info {
+  margin-top: 18rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.pickup-code {
+  margin-top: 20rpx;
+  padding: 22rpx;
+  background: #222222;
+  color: #ffffff;
+  border-radius: 8rpx;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: 800;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 800;
+  margin-bottom: 16rpx;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 24rpx;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #f0ebe4;
+}
+
+.order-item:last-child {
+  border-bottom: 0;
+}
+
+.item-name {
+  font-weight: 700;
+  margin-bottom: 6rpx;
+}
+
+.line {
+  margin-bottom: 12rpx;
+  color: #555555;
+}
+
+.payable {
+  font-size: 36rpx;
+  font-weight: 800;
+  margin-top: 20rpx;
+}
