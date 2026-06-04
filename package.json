@@ -1,0 +1,12 @@
+{
+  "name": "hulupizza",
+  "version": "0.1.0",
+  "private": true,
+  "description": "窑烤披萨经营项目与微信点餐小程序 MVP",
+  "scripts": {
+    "check": "node scripts/check-miniprogram.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

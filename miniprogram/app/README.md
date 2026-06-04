@@ -18,6 +18,16 @@
 3. 项目目录选择本文件夹：`pizza-kiln-business/miniprogram/app`。
 4. AppID 可先使用测试号或当前配置里的游客 AppID。
 
+## 本地检查
+
+在仓库根目录运行：
+
+```bash
+node scripts/check-miniprogram.js
+```
+
+检查通过后，再用微信开发者工具导入 `miniprogram/app`。
+
 ## 第一版边界
 
 - 微信支付暂时用“模拟支付并下单”代替。

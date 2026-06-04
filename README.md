@@ -19,6 +19,12 @@
 5. 阅读 `miniprogram/prd.md`，规划微信点餐小程序。
 6. 按 `templates/opening-checklist.md` 推进开店任务。
 
+## 运行环境
+
+- 查看 `docs/development-environment.md` 了解本地检查和微信开发者工具导入方式。
+- 在仓库根目录运行 `node scripts/check-miniprogram.js`，可以检查小程序文件是否齐全。
+- 小程序代码目录是 `miniprogram/app`，用微信开发者工具导入这个目录即可运行。
+
 ## 小程序模块
 
 - `miniprogram/prd.md`：餐饮点餐与优惠活动小程序产品需求文档
