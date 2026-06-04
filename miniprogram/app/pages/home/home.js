@@ -1,4 +1,4 @@
-const { products } = require("../../utils/mock-data");
+const { getVisibleProducts } = require("../../utils/product-store");
 
 Page({
   data: {
@@ -12,10 +12,12 @@ Page({
       app.globalData.store.tableNo = query.table;
       app.globalData.store.diningType = "dine-in";
     }
+    this.setData({ store: app.globalData.store });
+  },
 
+  onShow() {
     this.setData({
-      store: app.globalData.store,
-      recommends: products.filter((item) => item.tags.length).slice(0, 3)
+      recommends: getVisibleProducts().filter((item) => item.tags.length).slice(0, 3)
     });
   },
 

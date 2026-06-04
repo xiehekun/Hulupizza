@@ -1,15 +1,11 @@
-const { categories, products } = require("../../utils/mock-data");
+const { categories } = require("../../utils/mock-data");
+const { getVisibleProducts } = require("../../utils/product-store");
 const { getCart, saveCart, getCartTotal, getCartCount, buildCartKey } = require("../../utils/cart");
-
-const displayProducts = products.map((item) => ({
-  ...item,
-  initial: item.name.substring(0, 1)
-}));
 
 Page({
   data: {
     categories,
-    products: displayProducts,
+    products: [],
     activeCategory: "pizza",
     visibleProducts: [],
     cartCount: 0,
@@ -20,8 +16,17 @@ Page({
   },
 
   onShow() {
-    this.refreshProducts();
+    this.refreshStoreProducts();
     this.refreshCart();
+  },
+
+  refreshStoreProducts() {
+    const displayProducts = getVisibleProducts().map((item) => ({
+      ...item,
+      initial: item.name.substring(0, 1)
+    }));
+
+    this.setData({ products: displayProducts }, () => this.refreshProducts());
   },
 
   selectCategory(event) {
@@ -30,7 +35,7 @@ Page({
 
   refreshProducts() {
     this.setData({
-      visibleProducts: displayProducts.filter((item) => item.categoryId === this.data.activeCategory)
+      visibleProducts: this.data.products.filter((item) => item.categoryId === this.data.activeCategory)
     });
   },
 
@@ -43,7 +48,7 @@ Page({
   },
 
   openProduct(event) {
-    const product = displayProducts.find((item) => item.id === event.currentTarget.dataset.id);
+    const product = this.data.products.find((item) => item.id === event.currentTarget.dataset.id);
     const selectedOptions = product.options.map((group) => ({
       group: group.group,
       name: group.values[0].name,

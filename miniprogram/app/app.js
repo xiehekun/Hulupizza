@@ -10,10 +10,12 @@ App({
   },
 
   onLaunch() {
+    const { seedProductsIfNeeded } = require("./utils/product-store");
     const cart = wx.getStorageSync("cart");
     const orders = wx.getStorageSync("orders");
     const userCoupons = wx.getStorageSync("userCoupons");
 
+    seedProductsIfNeeded();
     if (!cart) wx.setStorageSync("cart", []);
     if (!orders) wx.setStorageSync("orders", []);
     if (!userCoupons) wx.setStorageSync("userCoupons", []);

@@ -6,7 +6,8 @@
     "pages/checkout/checkout",
     "pages/orders/orders",
     "pages/order-detail/order-detail",
-    "pages/coupons/coupons"
+    "pages/coupons/coupons",
+    "pages/product-admin/product-admin"
   ],
   "window": {
     "navigationBarTitleText": "窑烤披萨",
@@ -31,6 +32,10 @@
       {
         "pagePath": "pages/orders/orders",
         "text": "订单"
+      },
+      {
+        "pagePath": "pages/product-admin/product-admin",
+        "text": "管理"
       }
     ]
   },

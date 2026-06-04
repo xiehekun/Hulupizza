@@ -1,0 +1,88 @@
+<view class="page admin-page">
+  <view class="panel section">
+    <view class="between">
+      <view>
+        <view class="page-title">商品管理</view>
+        <view class="muted">统一维护点餐页展示的商品</view>
+      </view>
+      <button class="secondary-btn add-button" bindtap="startCreate">新增</button>
+    </view>
+  </view>
+
+  <view class="panel form-panel" wx:if="{{showForm}}">
+    <view class="section-title">{{editingId ? '编辑商品' : '新增商品'}}</view>
+
+    <view class="field">
+      <view class="label">商品名称</view>
+      <input value="{{form.name}}" data-field="name" placeholder="例如 玛格丽特披萨" bindinput="onInput" />
+    </view>
+
+    <view class="field">
+      <view class="label">商品描述</view>
+      <textarea value="{{form.description}}" data-field="description" placeholder="简短说明配料和口味" bindinput="onInput"></textarea>
+    </view>
+
+    <view class="field">
+      <view class="label">价格</view>
+      <input value="{{form.price}}" data-field="price" type="digit" placeholder="例如 58" bindinput="onInput" />
+    </view>
+
+    <view class="field">
+      <view class="label">分类</view>
+      <picker range="{{categoryNames}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
+        <view class="picker-value">{{currentCategoryName}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="label">标签</view>
+      <input value="{{form.tagText}}" data-field="tagText" placeholder="例如 招牌，多个用逗号分隔" bindinput="onInput" />
+    </view>
+
+    <view class="switch-row">
+      <view>
+        <view class="label strong">上架销售</view>
+        <view class="muted">关闭后不会出现在顾客菜单</view>
+      </view>
+      <switch checked="{{form.listed}}" data-field="listed" bindchange="onSwitch" />
+    </view>
+
+    <view class="switch-row">
+      <view>
+        <view class="label strong">售罄</view>
+        <view class="muted">开启后顾客端暂不展示</view>
+      </view>
+      <switch checked="{{form.soldOut}}" data-field="soldOut" bindchange="onSwitch" />
+    </view>
+
+    <view class="form-actions">
+      <button class="ghost-btn" bindtap="cancelForm">取消</button>
+      <button class="primary-btn save-btn" bindtap="saveProduct">保存</button>
+    </view>
+  </view>
+
+  <view class="panel section">
+    <view class="section-title">商品列表</view>
+    <view class="product-card" wx:for="{{products}}" wx:key="id">
+      <view class="product-top">
+        <view>
+          <view class="product-name">{{item.name}}</view>
+          <view class="muted">{{item.categoryName}} · ￥{{item.price}}</view>
+        </view>
+        <view class="state {{item.listed && !item.soldOut ? 'online' : ''}}">
+          {{item.statusText}}
+        </view>
+      </view>
+      <view class="desc">{{item.description}}</view>
+      <view class="tag-row" wx:if="{{item.tagText}}">
+        <view class="tag">{{item.tagText}}</view>
+      </view>
+      <view class="actions">
+        <button class="ghost-btn action-btn" data-id="{{item.id}}" bindtap="editProduct">编辑</button>
+        <button class="ghost-btn action-btn" data-id="{{item.id}}" bindtap="toggleListed">{{item.listed ? '下架' : '上架'}}</button>
+        <button class="ghost-btn action-btn" data-id="{{item.id}}" bindtap="toggleSoldOut">{{item.soldOut ? '恢复' : '售罄'}}</button>
+        <button class="ghost-btn danger-btn" data-id="{{item.id}}" bindtap="deleteProduct">删除</button>
+      </view>
+    </view>
+  </view>
+</view>
