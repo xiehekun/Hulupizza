@@ -37,6 +37,10 @@
 }
 
 .quick-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   background: #ffffff;
   border: 1rpx solid #ece5dc;
   border-radius: 8rpx;

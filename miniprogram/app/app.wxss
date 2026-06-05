@@ -13,6 +13,14 @@ textarea {
   box-sizing: border-box;
 }
 
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .page {
   min-height: 100vh;
   padding: 24rpx;
@@ -51,7 +59,7 @@ textarea {
 
 .primary-btn {
   height: 88rpx;
-  line-height: 88rpx;
+  line-height: 1;
   border-radius: 8rpx;
   background: #b23a1f;
   color: #ffffff;
@@ -61,7 +69,7 @@ textarea {
 
 .secondary-btn {
   height: 72rpx;
-  line-height: 72rpx;
+  line-height: 1;
   border-radius: 8rpx;
   background: #222222;
   color: #ffffff;
@@ -70,7 +78,7 @@ textarea {
 
 .ghost-btn {
   height: 64rpx;
-  line-height: 64rpx;
+  line-height: 1;
   border-radius: 8rpx;
   background: #f7f4ef;
   color: #222222;
