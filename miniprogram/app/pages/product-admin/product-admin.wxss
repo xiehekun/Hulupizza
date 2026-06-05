@@ -43,11 +43,19 @@ textarea,
   width: 100%;
   background: #f7f4ef;
   border-radius: 8rpx;
-  padding: 18rpx;
+}
+
+input,
+.picker-value {
+  height: 76rpx;
+  line-height: 76rpx;
+  padding: 0 18rpx;
 }
 
 textarea {
   min-height: 140rpx;
+  line-height: 1.5;
+  padding: 18rpx;
 }
 
 .switch-row {

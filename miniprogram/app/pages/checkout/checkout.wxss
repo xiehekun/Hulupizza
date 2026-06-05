@@ -41,11 +41,18 @@ textarea {
   width: 100%;
   background: #f7f4ef;
   border-radius: 8rpx;
-  padding: 18rpx;
+}
+
+input {
+  height: 76rpx;
+  line-height: 76rpx;
+  padding: 0 18rpx;
 }
 
 textarea {
   height: 150rpx;
+  line-height: 1.5;
+  padding: 18rpx;
 }
 
 .order-item,
