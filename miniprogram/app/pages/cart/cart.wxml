@@ -11,6 +11,7 @@
         <view>
           <view class="item-name">{{item.name}}</view>
           <view class="muted option-text">{{item.optionText}}</view>
+          <view class="muted option-text">剩余 {{item.stock}} 份</view>
         </view>
         <view class="price">￥{{item.price}}</view>
       </view>

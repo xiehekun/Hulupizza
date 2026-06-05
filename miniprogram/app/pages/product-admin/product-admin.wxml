@@ -28,6 +28,11 @@
     </view>
 
     <view class="field">
+      <view class="label">当日库存</view>
+      <input value="{{form.stock}}" data-field="stock" type="number" placeholder="例如 20" bindinput="onInput" />
+    </view>
+
+    <view class="field">
       <view class="label">分类</view>
       <picker range="{{categoryNames}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
         <view class="picker-value">{{currentCategoryName}}</view>
@@ -67,9 +72,9 @@
       <view class="product-top">
         <view>
           <view class="product-name">{{item.name}}</view>
-          <view class="muted">{{item.categoryName}} · ￥{{item.price}}</view>
+          <view class="muted">{{item.categoryName}} · ￥{{item.price}} · 剩余 {{item.stock}}</view>
         </view>
-        <view class="state {{item.listed && !item.soldOut ? 'online' : ''}}">
+        <view class="state {{item.listed && !item.soldOut && item.stock > 0 ? 'online' : ''}}">
           {{item.statusText}}
         </view>
       </view>

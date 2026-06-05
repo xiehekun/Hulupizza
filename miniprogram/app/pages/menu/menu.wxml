@@ -20,6 +20,7 @@
           <view wx:if="{{item.tags.length}}" class="tag">{{item.tags[0]}}</view>
         </view>
         <view class="desc">{{item.description}}</view>
+        <view class="stock-text">剩余 {{item.stock}} 份</view>
         <view class="between">
           <view class="price">￥{{item.price}}</view>
           <button
@@ -47,6 +48,7 @@
   <view class="option-sheet" wx:if="{{selectedProduct}}">
     <view class="sheet-title">{{selectedProduct.name}}</view>
     <view class="muted sheet-desc">{{selectedProduct.description}}</view>
+    <view class="stock-text sheet-stock">剩余 {{selectedProduct.stock}} 份</view>
 
     <view wx:for="{{selectedProduct.options}}" wx:key="group" class="option-group">
       <view class="option-title">{{item.group}}</view>

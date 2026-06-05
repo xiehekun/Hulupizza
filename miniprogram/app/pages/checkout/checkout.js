@@ -1,4 +1,5 @@
 const { getCart, saveCart, getCartTotal } = require("../../utils/cart");
+const { deductStock, getProducts } = require("../../utils/product-store");
 
 Page({
   data: {
@@ -28,9 +29,11 @@ Page({
   },
 
   refreshOrder() {
+    const products = getProducts();
     const cart = getCart().map((item) => ({
       ...item,
       optionText: item.selectedOptions.map((option) => option.name).join(" / ") || "标准",
+      stock: this.getProductStock(products, item.productId),
       lineTotal: item.price * item.quantity
     }));
     const cartTotal = getCartTotal(cart);
@@ -48,6 +51,12 @@ Page({
       discountAmount,
       payableAmount: Math.max(cartTotal - discountAmount, 0)
     });
+  },
+
+  getProductStock(products, productId) {
+    const product = products.find((item) => item.id === productId);
+    if (!product || !product.listed || product.soldOut) return 0;
+    return product.stock;
   },
 
   selectDiningType(event) {
@@ -80,6 +89,18 @@ Page({
 
     if (this.data.diningType === "dine-in" && !this.data.tableNo) {
       wx.showToast({ title: "请填写桌号", icon: "none" });
+      return;
+    }
+
+    const stockResult = deductStock(this.data.cart);
+    if (!stockResult.ok) {
+      const firstShortage = stockResult.shortages[0];
+      wx.showModal({
+        title: "库存不足",
+        content: `${firstShortage.name} 剩余 ${firstShortage.available} 份，当前需要 ${firstShortage.requested} 份。请调整购物车后再下单。`,
+        showCancel: false
+      });
+      this.refreshOrder();
       return;
     }
 

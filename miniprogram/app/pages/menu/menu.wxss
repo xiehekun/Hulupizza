@@ -66,8 +66,14 @@
   color: #777777;
   font-size: 24rpx;
   line-height: 1.5;
-  min-height: 72rpx;
-  margin: 10rpx 0;
+  min-height: 60rpx;
+  margin: 10rpx 0 4rpx;
+}
+
+.stock-text {
+  color: #777777;
+  font-size: 22rpx;
+  margin-bottom: 12rpx;
 }
 
 .tag {
@@ -148,6 +154,11 @@
 .sheet-desc {
   margin-top: 8rpx;
   line-height: 1.5;
+}
+
+.sheet-stock {
+  margin-top: 10rpx;
+  margin-bottom: 0;
 }
 
 .option-group {

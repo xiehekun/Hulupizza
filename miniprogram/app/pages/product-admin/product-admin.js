@@ -13,6 +13,7 @@ const emptyForm = {
   name: "",
   description: "",
   price: "",
+  stock: "",
   tagText: "",
   listed: true,
   soldOut: false,
@@ -43,7 +44,7 @@ Page({
         ...item,
         categoryName: category ? category.name : "未分类",
         tagText: item.tags.join("，"),
-        statusText: item.soldOut ? "售罄" : item.listed ? "上架" : "下架"
+        statusText: item.stock <= 0 ? "无库存" : item.soldOut ? "售罄" : item.listed ? "上架" : "下架"
       };
     });
 
@@ -72,7 +73,8 @@ Page({
       form: {
         ...product,
         tagText: product.tags.join("，"),
-        price: String(product.price)
+        price: String(product.price),
+        stock: String(product.stock)
       }
     });
   },
@@ -121,6 +123,7 @@ Page({
     const form = this.data.form;
     const name = form.name.trim();
     const price = Number(form.price);
+    const stock = Number(form.stock);
 
     if (!name) {
       wx.showToast({ title: "请填写商品名称", icon: "none" });
@@ -132,11 +135,17 @@ Page({
       return;
     }
 
+    if (!Number.isInteger(stock) || stock < 0) {
+      wx.showToast({ title: "请填写有效库存", icon: "none" });
+      return;
+    }
+
     upsertProduct({
       ...form,
       id: this.data.editingId || `product-${Date.now()}`,
       name,
       price,
+      stock,
       tags: form.tagText
         .split(/[,，]/)
         .map((item) => item.trim())

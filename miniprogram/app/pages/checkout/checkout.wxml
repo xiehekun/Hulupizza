@@ -23,6 +23,7 @@
       <view>
         <view class="item-name">{{item.name}} x {{item.quantity}}</view>
         <view class="muted">{{item.optionText}}</view>
+        <view class="muted">剩余 {{item.stock}} 份</view>
       </view>
       <view>￥{{item.lineTotal}}</view>
     </view>

@@ -101,6 +101,15 @@ Page({
     const selectedOptions = this.data.selectedOptions;
     const key = buildCartKey(product.id, selectedOptions);
     const cart = getCart();
+    const productQuantity = cart
+      .filter((item) => item.productId === product.id)
+      .reduce((sum, item) => sum + item.quantity, 0);
+
+    if (productQuantity >= product.stock) {
+      wx.showToast({ title: "库存不足", icon: "none" });
+      return;
+    }
+
     const existing = cart.find((item) => item.key === key);
 
     if (existing) {
