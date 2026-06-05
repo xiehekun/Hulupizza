@@ -39,7 +39,7 @@
 .quick-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   background: #ffffff;
   border: 1rpx solid #ece5dc;
@@ -47,6 +47,24 @@
   padding: 24rpx;
   text-align: left;
   line-height: 1.4;
+}
+
+.table-input {
+  width: 100%;
+  height: 64rpx;
+  line-height: 64rpx;
+  padding: 0 16rpx;
+  margin-top: 4rpx;
+  border-radius: 8rpx;
+  background: #f7f4ef;
+  font-size: 24rpx;
+}
+
+.quick-button {
+  width: 100%;
+  height: 56rpx;
+  margin-top: 14rpx;
+  font-size: 24rpx;
 }
 
 .quick-title {

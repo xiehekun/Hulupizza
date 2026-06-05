@@ -3,7 +3,8 @@ const { getVisibleProducts } = require("../../utils/product-store");
 Page({
   data: {
     store: {},
-    recommends: []
+    recommends: [],
+    tableNo: ""
   },
 
   onLoad(query) {
@@ -12,7 +13,10 @@ Page({
       app.globalData.store.tableNo = query.table;
       app.globalData.store.diningType = "dine-in";
     }
-    this.setData({ store: app.globalData.store });
+    this.setData({
+      store: app.globalData.store,
+      tableNo: app.globalData.store.tableNo || ""
+    });
   },
 
   onShow() {
@@ -21,20 +25,15 @@ Page({
     });
   },
 
+  onTableInput(event) {
+    this.setData({ tableNo: event.detail.value });
+  },
+
   startDineIn() {
-    wx.showModal({
-      title: "输入桌号",
-      editable: true,
-      placeholderText: "例如 A01",
-      success: (res) => {
-        if (res.confirm) {
-          const app = getApp();
-          app.globalData.store.tableNo = res.content || "A01";
-          app.globalData.store.diningType = "dine-in";
-          wx.switchTab({ url: "/pages/menu/menu" });
-        }
-      }
-    });
+    const app = getApp();
+    app.globalData.store.tableNo = this.data.tableNo.trim() || "A01";
+    app.globalData.store.diningType = "dine-in";
+    wx.switchTab({ url: "/pages/menu/menu" });
   },
 
   startPickup() {

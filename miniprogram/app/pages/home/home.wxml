@@ -8,10 +8,11 @@
   </view>
 
   <view class="quick-grid section">
-    <button class="quick-card" bindtap="startDineIn">
+    <view class="quick-card">
       <text class="quick-title">堂食点餐</text>
-      <text class="quick-sub">输入桌号后下单</text>
-    </button>
+      <input class="table-input" value="{{tableNo}}" placeholder="桌号，例如 A01" bindinput="onTableInput" />
+      <button class="secondary-btn quick-button" bindtap="startDineIn">开始</button>
+    </view>
     <button class="quick-card" bindtap="startPickup">
       <text class="quick-title">到店自取</text>
       <text class="quick-sub">提前下单，到店取餐</text>
